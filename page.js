@@ -1,6 +1,6 @@
 'use client'
 import { useEffect } from 'react'
-import { supabase } from '../lib/supabaseClient'
+import { supabase } from '../supabaseClient'
 
 export default function Home() {
   useEffect(() => {
@@ -8,9 +8,11 @@ export default function Home() {
   }, [])
 
   async function insertData() {
+    console.log('🔥 INSERT START')
+
     const { data, error } = await supabase
       .from('users')
-      .insert([{ name: 'test' }])
+      .insert([{ name: 'test123' }])
 
     console.log('DATA:', data)
     console.log('ERROR:', error)
