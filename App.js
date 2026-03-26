@@ -1,10 +1,21 @@
 import supabase from './supabaseClient'
+import { useEffect } from 'react'
 
-async function testConnection() {
-  const { data, error } = await supabase.auth.getSession()
+function App() {
+  useEffect(() => {
+    testConnection()
+  }, [])
 
-  console.log('DATA:', data)
-  console.log('ERROR:', error)
+  async function testConnection() {
+    console.log('🚀 START TEST')
+
+    const { data, error } = await supabase.auth.getSession()
+
+    console.log('✅ DATA:', data)
+    console.log('❌ ERROR:', error)
+  }
+
+  return <div>Hello</div>
 }
 
-testConnection()
+export default App
