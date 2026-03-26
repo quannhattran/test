@@ -21,6 +21,21 @@
 
   console.log('DATA:', data)
   console.log('ERROR:', error)
+
+  // Adapted insertData function from page.js
+  async function insertData() {
+    console.log('🔥 INSERT START')
+
+    const { data, error } = await supabase
+      .from('users')
+      .insert([{ name: 'test123' }])
+
+    console.log('DATA:', data)
+    console.log('ERROR:', error)
+  }
+
+  // Call the function to test it
+  await insertData()
 </script>
 
 </body>
